@@ -20,13 +20,17 @@ public class ValidateFilter extends BaseFilter {
         String login = req.getParameter("login");
         UserCache userCache = UserCache.getInstance();
         Collection<User> users = userCache.values();
+        boolean customerNotExist = true;
         for (User user : users) {
             String userLogin = user.getLogin();
             if (userLogin.equals(login)) {
                 RequestDispatcher dispatcher = req.getRequestDispatcher("views/ErrorRegistered.jsp"); // внутренний редирект на Users.jsp
                 dispatcher.forward(req, resp);
+                customerNotExist = false;
             }
         }
-        filterChain.doFilter(req, resp);
+        if (customerNotExist) {
+            filterChain.doFilter(req, resp);
+        }
     }
 }
