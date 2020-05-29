@@ -62,6 +62,17 @@ Inc.//DTD Web Application 2.3//EN"
         <url-pattern>/create</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>ValidateFilter</filter-name>
+        <filter-class>
+            practice.post.practice2.filters.ValidateFilter
+        </filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ValidateFilter</filter-name>
+        <url-pattern>/create</url-pattern>
+    </filter-mapping>
+
     <welcome-file-list>
         <welcome-file>views/Users.jsp</welcome-file>
     </welcome-file-list>
